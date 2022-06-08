@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class manageEvaluationController extends Controllers
+class manageEvaluationController extends Controller
 {
     public function viewStudentList(){
         $evaluator_id = session()->get('evaluator_id');

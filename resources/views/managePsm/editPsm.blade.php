@@ -17,7 +17,7 @@
                             <div class="control-group col-12">
                                 <label for="title">Post Title</label>
                                 <input type="text" id="title" class="form-control" name="title"
-                                       placeholder="Enter Post Title" value="{{ $post->title }}" required>
+                                       placeholder="Enter Post Title" value="{{ $post->evaluator_name }}" required>
                             </div>
                             <div class="control-group col-12 mt-2">
                                 <label for="body">Post Body</label>

@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 // Manage PSM
 Route::get('/psm', [\App\Http\Controllers\managePsmController::class, 'index']);
-Route::get('/psm/{managePsm}', [\App\Http\Controllers\managePsmController::class, 'show']);
+Route::get('/psm/{mPsm_id}', [\App\Http\Controllers\managePsmController::class, 'show']);
 Route::get('/psm/createPsm/post', [\App\Http\Controllers\managePsmController::class, 'create']); //shows create post form
 Route::post('/psm/createPsm/post', [\App\Http\Controllers\managePsmController::class, 'store']); //saves the created post to the databse
 Route::get('/psm/{managePsm}/editPsm', [\App\Http\Controllers\managePsmController::class, 'edit']); //shows edit post form

@@ -1,0 +1,49 @@
+//STUDENT
+            $table->string('student_id')->unique();
+            $table->string('supervisor_id');
+            $table->string('student_name');
+            $table->string('student_password');
+            $table->string('student_email');
+            
+            $table->foreign('supervisor_id')->references('supervisor_id')->on('supervisor');
+
+//SUPERVISOR
+            $table->string('supervisor_id')->unique();
+            $table->string('std_id1');
+            $table->string('std_id2')->nullable();
+            $table->string('std_id3')->nullable();
+            $table->string('supervisor_name');
+            $table->string('supervisor_password');
+            $table->string('supervisor_email');
+            
+            $table->foreign('std_id1')->references('student_id')->on('student');
+            $table->foreign('std_id2')->references('student_id')->on('student');
+            $table->foreign('std_id3')->references('student_id')->on('student');
+
+//EVALUATOR
+            $table->string('evaluator_id')->unique();
+            $table->string('std_id1');
+            $table->string('std_id2')->nullable();
+            $table->string('std_id3')->nullable();
+            $table->string('evaluator_name');
+            $table->string('evaluator_password');
+            $table->string('evaluator_email');
+            
+            $table->foreign('std_id1')->references('student_id')->on('student');
+            $table->foreign('std_id2')->references('student_id')->on('student');
+            $table->foreign('std_id3')->references('student_id')->on('student');
+            
+//MANAGE PSM
+            $table->string('evaluator_id');
+            $table->text('allocate');  // Title of our blog post          
+            $table->text('body');   // Body of our blog post    
+            $table->string('std_id1')->nullable();
+            $table->string('std_id2')->nullable();
+            $table->string('std_id3')->nullable();              
+            
+            $table->foreign('evaluator_id')->references('evaluator_id')->on('evaluators');
+            $table->foreign('std_id1')->references('student_id')->on('students');
+            $table->foreign('std_id2')->references('student_id')->on('student_password');
+            $table->foreign('std_id3')->references('student_id')->on('students');
+
+\App\Models\evaluator::factory()->times(10)->create();

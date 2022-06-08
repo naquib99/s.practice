@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('time_psms', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
-
-            $table->string('time_id')->unique;
-            $table->string('title');
-            $table->timestamp('start')->nullable();
-            $table->timestamp('end')->nullable();
+            
+            $table->string('student_id')->unique();
+            $table->string('student_name');
+            $table->string('student_password');
+            $table->string('student_email');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time_psms');
+        Schema::dropIfExists('student');
     }
 };

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\managePsm>
  */
-class managePsmFactory extends Factory
+class ManagePsmFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,10 @@ class managePsmFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence, //Generates a fake sentence
-            'body' => $this->faker->paragraph(30), //generates fake 30 paragraphs
-            'user_id' => \App\Models\User::factory(), //Generates a User from factory and extracts id
+            'evaluator_id' => \App\Models\evaluator::factory(),
+            'allocate' => 'Allocated',
+            'std_id1' => \App\Models\student::factory(),
+            
         ];
     }
 }

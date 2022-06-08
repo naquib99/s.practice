@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('manage_psms', function (Blueprint $table) {
+        Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
-
-            $table->text('title');  // Title of our blog post          
-            $table->text('body');   // Body of our blog post                  
-            $table->text('user_id');
             
-            $table->timestamps();
+            $table->string('supervisor_id')->unique();
+            $table->string('supervisor_name');
+            $table->string('supervisor_password');
+            $table->string('supervisor_email');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manage_psms');
+        Schema::dropIfExists('supervisor');
     }
 };
