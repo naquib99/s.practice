@@ -25,7 +25,7 @@
                     <div class="time">
                         @foreach ($timePsm as $tPsm)
                         <h2>PSM Time</h2>
-                        <p>{{ $tPsm->start }} - {{ $tPsm->end }} <a href=""><button>Details</button></a> </p>
+                        <p>{{ $tPsm->start }} - {{ $tPsm->end }} <a href="./timePsm/{{ $tPsm->id }}"><button>Details</button></a> </p>
                         @endforeach
                     </div>
 
@@ -33,17 +33,17 @@
                     <div class="time">
                         @foreach ($timeCarnival as $tCarnival)
                         <h2>Carnival Time</h2>
-                        <p>{{ $tCarnival->start }} - {{ $tCarnival->end }} <a href=""><button>Details</button></a> </p>
+                        <p>{{ $tCarnival->start }} - {{ $tCarnival->end }} <a href="./timePsm/{{ $tCarnival->id }}"><button>Details</button></a> </p>
                         @endforeach
                     </div>
 
                     <!-- EVALUATOR LIST -->
                     <h2>Evaluator List</h2>
-                    @forelse($evaluators as $evaluator)
+                    @forelse($mPsms as $mPsm)
                     <ul>
-                        <li>{{ ucfirst($evaluator->evaluator_name) }}
-                            - {{ ucfirst($evaluator->allocate) }} -
-                            <a href="./psm/{{ $evaluator->id }}"><button>Details</button></a>
+                        <li>{{ ucfirst($mPsm->evaluator_name) }}
+                            - {{ ucfirst($mPsm->allocate) }} -
+                            <a href="./psm/{{ $mPsm->id }}"><button>Details</button></a>
                         </li>
                     </ul>
                     @empty

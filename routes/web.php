@@ -19,13 +19,13 @@ Route::get('/', function () {
 
 // Manage PSM
 Route::get('/psm', [\App\Http\Controllers\managePsmController::class, 'index']);
-Route::get('/psm/{mPsm_id}', [\App\Http\Controllers\managePsmController::class, 'show']);
-Route::get('/psm/createPsm/post', [\App\Http\Controllers\managePsmController::class, 'create']); //shows create post form
-Route::post('/psm/createPsm/post', [\App\Http\Controllers\managePsmController::class, 'store']); //saves the created post to the databse
-Route::get('/psm/{managePsm}/editPsm', [\App\Http\Controllers\managePsmController::class, 'edit']); //shows edit post form
-Route::put('/psm/{managePsm}/editPsm', [\App\Http\Controllers\managePsmController::class, 'update']); //commits edited post to the database 
+Route::get('/psm/{id}', [\App\Http\Controllers\managePsmController::class, 'show']);
+Route::get('/psm/createPsm/mPsm', [\App\Http\Controllers\managePsmController::class, 'create']); //shows create post form
+Route::post('/psm/createPsm/mPsm', [\App\Http\Controllers\managePsmController::class, 'store']); //saves the created post to the databse
+Route::get('/psm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'edit']); //shows edit post form
+Route::put('/psm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'update']); //commits edited post to the database 
 Route::delete('/psm/{managePsm}', [\App\Http\Controllers\managePsmController::class, 'destroy']); //deletes post from the database
 
-Route::post('/psm/createTime',[\App\Http\Controllers\managePsmController::class, 'showTime']);
-Route::post('/psm/updateTime',[\App\Http\Controllers\managePsmController::class, 'updateTime']);
-Route::post('/psm/deleteTime',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
+Route::get('/psm/createTime',[\App\Http\Controllers\managePsmController::class, 'createTime']);
+Route::get('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'showTime']);
+Route::delete('/psm/deleteTime',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);

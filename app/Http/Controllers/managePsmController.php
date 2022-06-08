@@ -6,17 +6,17 @@ use App\Models\managePsm;
 use App\Models\timePsm;
 use App\Event;
 use App\Models\evaluator;
+use App\Models\student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Redirect,Response;
+use Redirect, Response;
 
 class managePsmController extends Controller
 {
     public function index()
     {
         // $posts = managePsm::all();
-        $mPsms = managePsm::all();
-        $evaluators = DB::table('manage_psms')
+        $mPsms = managePsm::select('*')
             ->join('evaluators', 'manage_psms.evaluator_id', '=', 'evaluators.evaluator_id')
             ->select('evaluators.evaluator_name', 'manage_psms.allocate', 'manage_psms.id')->get();
 
@@ -24,22 +24,62 @@ class managePsmController extends Controller
         $timeCarnival = timePsm::select('*')->where('title', '=', 'carnival')->get();
 
         return view('managePsm.indexPsm', [
-            'evaluators' => $evaluators,
+            'mPsms' => $mPsms,
             'timePsm' => $timePsm,
-            'timeCarnival' => $timeCarnival,
-            'mPsms' => $mPsms
-        ]); //returns the view with posts
+            'timeCarnival' => $timeCarnival
+        ]);
+    }
+
+    public function show($id)
+    {
+        $mPsm = managePsm::select('*')
+            ->where('manage_psms.id', '=', $id)->first();
+
+        $evaluator = managePsm::select('*')
+            ->join('evaluators', 'manage_psms.evaluator_id', '=', 'evaluators.evaluator_id')
+            ->select('evaluators.evaluator_name')
+            ->where('manage_psms.id', '=', $id)->get();
+
+        $students = student::select('*')->get();
+
+        $std1 = managePsm::select('*')
+            ->join('students', 'manage_psms.std_id1', '=', 'students.student_id')
+            ->select('students.student_name')
+            ->where('manage_psms.id', '=', $id)->first();
+        $std2 = managePsm::select('*')
+            ->join('students', 'manage_psms.std_id2', '=', 'students.student_id')
+            ->select('students.student_name')
+            ->where('manage_psms.id', '=', $id)->first();
+        $std3 = managePsm::select('*')
+            ->join('students', 'manage_psms.std_id3', '=', 'students.student_id')
+            ->select('students.student_name')
+            ->where('manage_psms.id', '=', $id)->first();
+
+        return view('managePsm.showPsm', [
+            'mPsm' => $mPsm,
+            'evaluator' => $evaluator,
+            'stds' => $students,
+            'std1' => $std1,
+            'std2' => $std2,
+            'std3' => $std3
+        ]);
     }
 
     public function create()
     {
-        return view('managePsm.createPsm');
+        $evaluator = evaluator::select('*')->get();
+        $student = student::select('*')->get();
+
+        return view('managePsm.createPsm', [
+            'evaluator' => $evaluator,
+            'student' => $student
+        ]);
     }
 
     public function store(Request $request)
     {
         $newPost = managePsm::create([
-            'evluator_id' => $request->evaluator_id,
+            'evaluator_id' => $request->evaluator_id,
             'allocate' => $request->allocate,
             'std_id1' => $request->std_id1,
             'std_id2' => $request->std_id2,
@@ -49,18 +89,17 @@ class managePsmController extends Controller
         return redirect('psm/' . $newPost->id);
     }
 
-    public function show(managePsm $managePsm)
+    public function edit($id)
     {
-        
-        return view('managePsm.showPsm', [
-            'post' => $managePsm,
-        ]);
-    }
+        $evaluator = managePsm::select('*')
+            ->join('evaluators', 'manage_psms.evaluator_id', '=', 'evaluators.evaluator_id')
+            ->select('evaluators.evaluator_name')
+            ->where('manage_psms.id', '=', $id)->first();
+        $students = student::select('*');
 
-    public function edit(managePsm $managePsm)
-    {
         return view('managePsm.editPsm', [
-            'post' => $managePsm,
+            'evaluator' => $evaluator,
+            'students' => $students
         ]); //returns the edit view with the post
     }
 
@@ -81,5 +120,11 @@ class managePsmController extends Controller
         return redirect('/psm');
     }
 
-
+    // TIME PSM
+    public function showTime(timePsm $timePsm)
+    {
+        return view('managePsm.timePsm.editTime', [
+            'tPsm' => $timePsm,
+        ]);
+    }
 }
