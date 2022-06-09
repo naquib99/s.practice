@@ -46,7 +46,7 @@
                     <ol>
 
                         @forelse($mPsms as $mPsm)
-                        <li class="evaluator">{{ ucfirst($mPsm->evaluator_name) }}
+                        <li class="evaluator">{{ ucfirst($mPsm->evaluator_name) }} ({{($mPsm->evaluator_id) }})
                             - {{ ucfirst($mPsm->allocate) }} -
                             <a href="./psm/{{ $mPsm->id }}"><button>Details</button></a>
                         </li>

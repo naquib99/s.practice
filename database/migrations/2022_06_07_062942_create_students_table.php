@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('student_name');
             $table->string('student_password');
             $table->string('student_email');
-            $table->string('evaluator_id');
+            $table->string('supervisor_id');
         });
     }
 

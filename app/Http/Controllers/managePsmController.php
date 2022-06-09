@@ -18,7 +18,7 @@ class managePsmController extends Controller
         // $posts = managePsm::all();
         $mPsms = managePsm::select('*')
             ->join('evaluators', 'manage_psms.evaluator_id', '=', 'evaluators.evaluator_id')
-            ->select('evaluators.evaluator_name', 'manage_psms.allocate', 'manage_psms.id')->get();
+            ->select('*')->get();
 
         $timePsm = timePsm::select('*')->where('title', '=', 'psm')->first();
         $timeCarnival = timePsm::select('*')->where('title', '=', 'carnival')->first();
@@ -37,7 +37,7 @@ class managePsmController extends Controller
 
         $evaluator = managePsm::select('*')
             ->join('evaluators', 'manage_psms.evaluator_id', '=', 'evaluators.evaluator_id')
-            ->select('evaluators.evaluator_name')
+            ->select('*')
             ->where('manage_psms.id', '=', $id)->get();
 
         $students = student::select('*')->get();
