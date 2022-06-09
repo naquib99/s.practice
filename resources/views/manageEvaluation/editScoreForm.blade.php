@@ -34,6 +34,8 @@
           <td>{{$rubric->weightage}}</td>
           <form action = "/edit" method = "POST">
               <input type="hidden" name="score_id" value = "{{$rubric->score_id}}">
+              <input type="hidden" name="rubric_id" value = "{{$rubric->rubric_id}}">
+              <input type="hidden" name="student_id" value = "{{$rubric->student_id}}">
               <input type="number" name="score">
           <td><input type="submit"></td>
           </form>
