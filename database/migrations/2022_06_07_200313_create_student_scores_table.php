@@ -20,10 +20,6 @@ return new class extends Migration
             $table->integer('student_id'); 
             $table->integer('rubricDetail_id');
             $table->double('score')->nullable();              
-            
-            $table->foreign('student_id')->references('student_id')->on('students');
-            $table->foreign('rubricDetail_id')->references('rubricDetail_id')->on('rubricDetails');
-
         });
     }
 
