@@ -20,20 +20,20 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($edit as $i=>$edit)
+      @foreach ($rubric as $i=>$rubric)
         <tr>
           
-            <td>{{$edit->rubric_id}}</td>
-          <td>{{$edit->course_outcome}}</td>
-          <td>{{$edit->competency}}</td>
-          <td>{{$edit->scale 1}}</td>
-          <td>{{$edit->scale 2}}</td>
-          <td>{{$edit->scale 3}}</td>
-          <td>{{$edit->scale 4}}</td>
-          <td>{{$edit->scale 5}}</td>
-          <td>{{$edit->weightage}}</td>
+            <td>{{$rubric->rubric_id}}</td>
+          <td>{{$rubric->course_outcome}}</td>
+          <td>{{$rubric->competency}}</td>
+          <td>{{$rubric->scale 1}}</td>
+          <td>{{$rubric->scale 2}}</td>
+          <td>{{$rubric->scale 3}}</td>
+          <td>{{$rubric->scale 4}}</td>
+          <td>{{$rubric->scale 5}}</td>
+          <td>{{$rubric->weightage}}</td>
           <form action = "/edit" method = "POST">
-              <input type="hidden" name="score_id" value = "{{$edit->score_id}}">
+              <input type="hidden" name="score_id" value = "{{$rubric->score_id}}">
               <input type="number" name="score">
           <td><input type="submit"></td>
           </form>
