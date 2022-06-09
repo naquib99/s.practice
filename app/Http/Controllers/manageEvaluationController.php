@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\DB;
 class manageEvaluationController extends Controller
 {
     public function viewStudentList(){
-        $supervisor_id = session()->get('supervisor_id');
+        // $supervisor_id = session()->get('supervisor_id');
+        $supervisor_id = 1;
         $list = DB::table('project_details')
                 ->where('supervisor_id','=', $supervisor_id)
                 ->get()
                 ->toarray();
-        return view ('pages.list.viewStudentList', ['list' => $list]);
+        return view ('manageEvaluation.viewStudentList', ['list' => $list]);
     }
 
     public function editScoreForm($rubric_id, $student_id){
