@@ -19,14 +19,32 @@ class manageEvaluationController extends Controller
     }
 
     public function editScoreForm($rubric_id, $student_id){
-        $score = DB::table('student_scores')
-            ->join('rubricDetails','rubricDetails.rubric_id','=','student_scores.rubric_id')
-            ->where('student_scores.student_id','=', $student_id)
-            ->where('student_scores.rubric_id','=', $rubric_id)
-            ->select('rubricDetails.*','student_scores.*')
+        $exist = DB::table('student_scores') // initialization of scores
+            ->where('student_id','=',$student_id)
             ->get()
             ->toarray();
-        return view('editScoreForm',['score' => $score]);
+        if ($exist == []) 
+        {
+            $count = DB::table('rubricDetails')
+            ->get()
+            ->toarray();
+            $size = $count->count();
+            for ($i=0; $i < $size; $i++)
+            {
+                DB::table('student_scores')->insert([
+                'student_id' => $student_id,
+                'rubricDetail_id' => $i,
+                'score' => '0'
+                ]);
+            }
+        }
+        $rubric = DB::table('rubricDetails') //get all their scores from 1 evaluation session
+            ->where('student_id','=', $student_id)
+            ->where('rubric_id','=', $rubric_id)
+            ->join('student_scores','student_scores.rubricDetail.id', '=', 'rubricDetails.rubricDetail_id')
+            ->get()
+            ->toarray();
+        return view('editScoreForm',['rubric' => $rubric]);
     }
 
     public function updateScore(Request $request){

@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('content')
 <style>
-    .display-one {
-        margin: auto;
-        width: auto;
-        padding: 10px;
-    }
+.display-one {
+    margin: auto;
+    width: auto;
+    padding: 10px;
+}
 
-    .std {
-        -webkit-text-decoration-line: underline;
-        /* Safari */
-        text-decoration-line: underline;
-    }
+.std {
+    -webkit-text-decoration-line: underline;
+    /* Safari */
+    text-decoration-line: underline;
+}
 </style>
 
 <div class="container">
