@@ -30,8 +30,7 @@
         <p>{{$studentProject->PSM_title}}</p>
         <h4>PSM Type</h4>
         <p>{{$studentProject->PSM_type}}</p>
-        <h4>Project Score</h4>
-        <p>{{$studentProject->score}}</p>
+
     </div>
 </div>
 

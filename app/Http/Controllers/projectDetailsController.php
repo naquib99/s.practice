@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class projectDetailsController extends Controller
 {
     //supervisor
-    public function supervisor($id) {
+    public function displayListOfProjects($id) {
          
         $projects = projectDetail::select('*')
             ->join('students','project_details.student_id','=','students.student_id')
@@ -27,7 +27,7 @@ class projectDetailsController extends Controller
 
     }
 
-    public function student($id) {
+    public function displayStudentProject($id) {
 
     
         $studentProject = projectDetail::select('*')
@@ -44,7 +44,7 @@ class projectDetailsController extends Controller
     }
 
     
-    public function delete($id)
+    public function removeProject($id)
     {
         DB::table("project_details")->where('project_id', '=', $id)->delete();
       
@@ -52,7 +52,7 @@ class projectDetailsController extends Controller
         return redirect('/');
     }
 
-    public function update(Request $request, $id)
+    public function EditProject(Request $request, $id)
     {
 
 
@@ -65,7 +65,7 @@ class projectDetailsController extends Controller
         return redirect('/');
     }
 
-    public function add(Request $request)
+    public function AddProject(Request $request)
     {
         $score = 0;
 

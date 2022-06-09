@@ -106,8 +106,6 @@ $(document).ready(function() {
             <p>{{$project->PSM_title}}</p>
             <h4>PSM Type</h4>
             <p>{{$project->PSM_type}}</p>
-            <h4>Project Score</h4>
-            <p>{{$project->score}}</p>
 
 
 
