@@ -30,17 +30,17 @@
 
             <!-- FIRST STUDENT -->
             @if( !empty($std1->student_name))
-            <h4>Student 1: {{ ucfirst($std1->student_name) }}</h4>
+            <h4>Student 1: {{ ucfirst($std1->student_name) }} ({{$std1->student_id}})</h4>
             @endif
 
             <!-- SECOND STUDENT -->
             @if( !empty($std2->student_name))
-            <h4>Student 2: {{ ucfirst($std2->student_name) }}</h4>
+            <h4>Student 2: {{ ucfirst($std2->student_name) }} ({{$std2->student_id}})</h4>
             @endif
 
             <!-- THIRD STUDENT -->
             @if( !empty($std3->student_name))
-            <h4>Student 3: {{ ucfirst($std3->student_name) }}</h4>
+            <h4>Student 3: {{ ucfirst($std3->student_name) }} ({{$std3->student_id}})</h4>
             @endif
 
             <hr>
@@ -51,7 +51,7 @@
             <form id="delete-frm" class="" action="" method="POST">
                 @method('DELETE')
                 @csrf
-                <button class="btn btn-danger">Delete Post</button>
+                <button class="btn btn-danger" onclick="return confirm('Do you really want to delete?');">Delete Post</button>
             </form>
         </div>
     </div>

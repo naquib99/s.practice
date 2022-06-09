@@ -23,14 +23,17 @@ Route::get('/psm/{id}', [\App\Http\Controllers\managePsmController::class, 'show
 Route::get('/psm/createPsm/mPsm', [\App\Http\Controllers\managePsmController::class, 'create']); //shows create post form
 Route::post('/psm/createPsm/mPsm', [\App\Http\Controllers\managePsmController::class, 'store']); //saves the created post to the databse
 Route::get('/psm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'edit']); //shows edit post form
-Route::put('/psm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'update']); //commits edited post to the database 
+Route::put('/psm/{managePsm}/editPsm', [\App\Http\Controllers\managePsmController::class, 'update']); //commits edited post to the database 
 Route::delete('/psm/{managePsm}', [\App\Http\Controllers\managePsmController::class, 'destroy']); //deletes post from the database
 
-Route::get('/psm/createTime',[\App\Http\Controllers\managePsmController::class, 'createTime']);
+Route::get('/timePsm/createTime',[\App\Http\Controllers\managePsmController::class, 'createTime']);
+Route::post('/timePsm/createTime/mPsm', [\App\Http\Controllers\managePsmController::class, 'insertTime']);
 Route::get('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'showTime']);
-Route::delete('/psm/deleteTime',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
+Route::put('/timePsm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'updateTime']);
+Route::delete('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
 
 //Student Score
+
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'index']);
 Route::get('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'index']);
 Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'index']);
@@ -41,3 +44,8 @@ Route::get('/projectDetails/viewStudentProject/{id}',[\App\Http\Controllers\proj
 Route::delete('/projectDetails/viewLectProjects/delete/{id}',[\App\Http\Controllers\projectDetailsController::class,'delete']);
 Route::put('/projectDetails/viewLectProjects/update/{id}',[\App\Http\Controllers\projectDetailsController::class,'update']);
 Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projectDetailsController::class,'add']);
+
+
+Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
+Route::post('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
+Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);

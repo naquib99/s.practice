@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('student_scores', function (Blueprint $table) {
             $table->id();
             
-            $table->int('score_id');
-            $table->int('student_id'); 
-            $table->int('rubric_id');
+            $table->integer('score_id');
+            $table->integer('student_id'); 
+            $table->integer('rubricDetail_id');
             $table->double('score')->nullable();              
             
             $table->foreign('student_id')->references('student_id')->on('students');
-            $table->foreign('rubric_id')->references('rubric_id')->on('rubric');
+            $table->foreign('rubricDetail_id')->references('rubricDetail_id')->on('rubricDetail');
 
         });
     }
