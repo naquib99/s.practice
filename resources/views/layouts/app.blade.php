@@ -87,7 +87,7 @@
             <a href="#">Users</a>
             <a href="#">Services</a>
             <a href="/psm">Manage PSM</a>
-            <a href="#">Contact</a>
+            <a href="/manageEvaluation/viewStudentList">Manage Evaluation</a>
         </div>
         <script>
             function openNav() {
