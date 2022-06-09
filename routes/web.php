@@ -31,3 +31,8 @@ Route::post('/timePsm/createTime/mPsm', [\App\Http\Controllers\managePsmControll
 Route::get('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'showTime']);
 Route::put('/timePsm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'updateTime']);
 Route::delete('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
+
+//Student Score
+Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
+Route::post('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
+Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);
