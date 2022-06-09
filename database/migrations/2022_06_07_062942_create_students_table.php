@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('student_name');
             $table->string('student_password');
             $table->string('student_email');
+            $table->string('evaluator_id');
+            $table->string('supervisor_id')();
+
+            $table->foreign('evaluator_id')->references('evaluator_id')->on('evaluators');
+            $table->foreign('supervisor_id')->references('supervisor_id')->on('supervisors');
         });
     }
 
