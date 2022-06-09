@@ -42,5 +42,5 @@ Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projec
 //Student Score
 Route::get('/manageEvaluation/viewStudentDetails/{id}',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentDetails']);
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
-Route::post('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
+Route::get('/manageEvaluation/editScoreForm/{rubric_id}/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
 Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);
