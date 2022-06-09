@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\DB;
 class manageEvaluationController extends Controller
 {
     public function viewStudentList(){
-        $evaluator_id = session()->get('evaluator_id');
-        $list = DB::table('studentInfos')
-                ->where('evaluator_id','=', $evaluator_id)
+        $supervisor_id = session()->get('supervisor_id');
+        $list = DB::table('project_details')
+                ->where('supervisor_id','=', $supervisor_id)
                 ->get()
                 ->toarray();
         return view ('pages.list.viewStudentList', ['list' => $list]);
@@ -52,5 +52,13 @@ class manageEvaluationController extends Controller
         ->where('score_id','=',$score_id)
         ->update(['score' => $score]);
         return redirect()->action([manageEvaluationController::class,'editScoreForm($rubric_id, $student_id)']);
+    }
+
+    public function viewStudentDetails($student_id){
+        $student = DB::table('projet_details')
+            ->where('student_id','=', $student_id)
+            ->get()
+            ->toarray();
+        return view('viewStudentDetails',['student' => $student]);
     }
 }
