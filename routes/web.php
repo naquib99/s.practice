@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\manageRubricController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Manage PSM
+/*
+|--------------------------------------------------------------------------
+| MANAGE PSM MODULE
+|--------------------------------------------------------------------------
+*/
 Route::get('/psm', [\App\Http\Controllers\managePsmController::class, 'index']);
 Route::get('/psm/{id}', [\App\Http\Controllers\managePsmController::class, 'show']);
 Route::get('/psm/createPsm/mPsm', [\App\Http\Controllers\managePsmController::class, 'create']); //shows create post form
@@ -32,14 +37,29 @@ Route::get('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::clas
 Route::put('/timePsm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'updateTime']);
 Route::delete('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
 
-//Project Details
+/*
+|--------------------------------------------------------------------------
+| MANAGE PROJECT DETAILS MODULE
+|--------------------------------------------------------------------------
+*/
 Route::get('/projectDetails/viewLectProjects/{id}',[\App\Http\Controllers\projectDetailsController::class,'displayListOfProjects']);
 Route::get('/projectDetails/viewStudentProject/{id}',[\App\Http\Controllers\projectDetailsController::class,'displayStudentProject']);
 Route::delete('/projectDetails/viewLectProjects/delete/{id}',[\App\Http\Controllers\projectDetailsController::class,'removeProject']);
 Route::put('/projectDetails/viewLectProjects/update/{id}',[\App\Http\Controllers\projectDetailsController::class,'EditProject']);
 Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projectDetailsController::class,'AddProject']);
 
-//Student Score
+/*
+|--------------------------------------------------------------------------
+| MANAGE RUBRIC MODULE
+|--------------------------------------------------------------------------
+*/
+
+
+/*
+|--------------------------------------------------------------------------
+| MANAGE EVALUATION MODULE
+|--------------------------------------------------------------------------
+*/
 Route::get('/manageEvaluation/viewStudentDetails/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentDetails']);
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
 Route::get('/manageEvaluation/editScoreForm/{rubric_id}/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
