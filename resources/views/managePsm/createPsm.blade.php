@@ -13,8 +13,8 @@
         <div class="col-12 pt-2">
             <a href="/psm" class="btn btn-outline-primary btn-sm">Go back</a>
             <div class="rounded mt-5 pl-4 pr-4 pt-4 pb-4">
-                <h1 class="display-4">Input a Supervisor</h1>
-                <p>Fill and submit this form to input a new supervisor</p>
+                <h1 class="display-4">Input An Evaluators</h1>
+                <p>Fill and submit this form to input a new evaluator</p>
 
                 <form action="" method="POST">
                     @csrf

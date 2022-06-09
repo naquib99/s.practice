@@ -86,12 +86,10 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="/">Home</a>
-            <a href="#">Users</a>
-            <a href="#">Services</a>
             <a href="/psm">Manage PSM</a>
             <a href="/projectDetails/viewLectProjects/SV10012">Supervisor Project Details</a>
             <a href="/projectDetails/viewStudentProject/CB18074">Student Project Details</a>
-            <a href="#">Contact</a>
+            <a href="/manageRubric/rubricIndex">Rubric</a>
             <a href="/manageEvaluation/viewStudentList">Manage Evaluation</a>
 
         </div>

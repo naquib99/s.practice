@@ -20,7 +20,7 @@
             <a href="/psm" class="btn btn-outline-primary btn-sm">Go back</a>
 
             @foreach ($evaluator as $eva)
-            <h1 class="display-one">{{ $eva->evaluator_name }}</h1>
+            <h1 class="display-one">{{ $eva->evaluator_name }} ({{ $eva->evaluator_id }})</h1>
             @endforeach
             <!-- <h1 class="display-one">{{ ucfirst($mPsm->id) }}</h1> -->
 

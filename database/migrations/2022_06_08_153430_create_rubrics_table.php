@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_scores', function (Blueprint $table) {
+        Schema::create('rubrics', function (Blueprint $table) {
             $table->id();
             
-            $table->integer('score_id');
-            $table->integer('student_id'); 
-            $table->integer('rubricDetail_id');
-            $table->double('score')->nullable();              
+            $table->integer('rubric_id');
+            $table->String('rubric_name'); 
+
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_scores');
+        Schema::dropIfExists('rubrics');
     }
 };

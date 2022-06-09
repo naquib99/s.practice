@@ -13,13 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_scores', function (Blueprint $table) {
+        Schema::create('rubricDetails', function (Blueprint $table) {
             $table->id();
             
-            $table->integer('score_id');
-            $table->integer('student_id'); 
+            $table->integer('rubric_id');
             $table->integer('rubricDetail_id');
-            $table->double('score')->nullable();              
+            $table->String('course_outcome');
+            $table->String('competency');
+            $table->String('scale1');
+            $table->String('scale2');
+            $table->String('scale3');
+            $table->String('scale4');
+            $table->String('scale5'); 
+            $table->double('weightage');
+
         });
     }
 
@@ -30,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_scores');
+        Schema::dropIfExists('rubricDetails');
     }
 };

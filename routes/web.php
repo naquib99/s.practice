@@ -32,12 +32,6 @@ Route::get('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::clas
 Route::put('/timePsm/{id}/editPsm', [\App\Http\Controllers\managePsmController::class, 'updateTime']);
 Route::delete('/timePsm/{timePsm}',[\App\Http\Controllers\managePsmController::class, 'destroyTime']);
 
-//Student Score
-
-Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'index']);
-Route::get('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'index']);
-Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'index']);
-
 //Project Details
 Route::get('/projectDetails/viewLectProjects/{id}',[\App\Http\Controllers\projectDetailsController::class,'displayListOfProjects']);
 Route::get('/projectDetails/viewStudentProject/{id}',[\App\Http\Controllers\projectDetailsController::class,'displayStudentProject']);
@@ -45,7 +39,8 @@ Route::delete('/projectDetails/viewLectProjects/delete/{id}',[\App\Http\Controll
 Route::put('/projectDetails/viewLectProjects/update/{id}',[\App\Http\Controllers\projectDetailsController::class,'EditProject']);
 Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projectDetailsController::class,'AddProject']);
 
-
+//Student Score
+Route::get('/manageEvaluation/viewStudentDetails/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentDetails']);
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
-Route::post('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
-Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);
+Route::get('/manageEvaluation/editScoreForm/{rubric_id}/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
+Route::post('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);
