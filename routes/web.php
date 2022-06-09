@@ -34,3 +34,10 @@ Route::delete('/psm/deleteTime',[\App\Http\Controllers\managePsmController::clas
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'index']);
 Route::get('/manageEvaluation/editScoreForm',[\App\Http\Controllers\manageEvaluationController::class,'index']);
 Route::get('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'index']);
+
+//Project Details
+Route::get('/projectDetails/viewLectProjects/{id}',[\App\Http\Controllers\projectDetailsController::class,'supervisor']);
+Route::get('/projectDetails/viewStudentProject/{id}',[\App\Http\Controllers\projectDetailsController::class,'student']);
+Route::delete('/projectDetails/viewLectProjects/delete/{id}',[\App\Http\Controllers\projectDetailsController::class,'delete']);
+Route::put('/projectDetails/viewLectProjects/update/{id}',[\App\Http\Controllers\projectDetailsController::class,'update']);
+Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projectDetailsController::class,'add']);
