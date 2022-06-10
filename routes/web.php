@@ -53,7 +53,12 @@ Route::post('/projectDetails/viewLectProjects/add',[\App\Http\Controllers\projec
 | MANAGE RUBRIC MODULE
 |--------------------------------------------------------------------------
 */
-
+Route::get('rubricIndex','App\Http\Controllers\manageRubricController@view'); //View Rubric
+Route::get('rubricCreate', function () {return view('manageRubric/rubricCreate');}); //Create Rubric
+Route::post('rubric/create','App\Http\Controllers\manageRubricController@create'); //Post Created Rubric to Index
+Route::get('/rubric/{id}/edit','App\Http\Controllers\manageRubricController@edit'); //Edit Rubric
+Route::post('/rubric/{id}/update','App\Http\Controllers\manageRubricController@update'); //Update Rubric
+Route::get('/rubric/{id}/delete','App\Http\Controllers\manageRubricController@delete'); //Delete Rubric
 
 /*
 |--------------------------------------------------------------------------
