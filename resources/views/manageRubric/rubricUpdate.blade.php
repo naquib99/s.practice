@@ -13,7 +13,7 @@
 @section('content') 
     <!-- Page Content  -->
     <div id="body" class="row" style="padding:20px;background-color:#d8d8d8">
-        <div class=" mb-5" style="background-color:#303030;padding:10px;color:white;width:60%;">
+        <div class=" mb-5" style="background-color:#303030;padding:30px;color:white;width:60%;">
         <center>    
         <h1><b>Update Rubric</b></h1></center>
             <form action="/rubric/{{$rubric->id}}/update" method="POST">
