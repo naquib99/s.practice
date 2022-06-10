@@ -23,7 +23,7 @@
                 <div style="padding:2px; background-color:#303030">
             </div>
 
-            <h1>Rubric Information</h1>
+            <h1>PSM Rubric Information</h1>
             <br><div class="table-wrapper-scroll-y my-custom-scrollbar">
                 <table class="table table-hover table-success table-striped" width="100%">
                     <tr>
