@@ -69,3 +69,20 @@ Route::get('/manageEvaluation/viewStudentDetails/{student_id}',[\App\Http\Contro
 Route::get('/manageEvaluation/viewStudentList',[\App\Http\Controllers\manageEvaluationController::class,'viewStudentList']);
 Route::get('/manageEvaluation/editScoreForm/{rubric_id}/{student_id}',[\App\Http\Controllers\manageEvaluationController::class,'editScoreForm']);
 Route::post('/manageEvaluation/updateScore',[\App\Http\Controllers\manageEvaluationController::class,'updateScore']);
+
+
+/*
+|--------------------------------------------------------------------------
+| MANAGE USERS MODULE
+|--------------------------------------------------------------------------
+*/
+
+
+Route::get('/users', [\App\Http\Controllers\manageUserController::class, 'index'])->name('user.index');
+Route::get('/user/{user_id}', [\App\Http\Controllers\manageUserController::class, 'show'])->name('user.show');
+Route::get('/user/createUser/post', [\App\Http\Controllers\manageUserController::class, 'create'])->name('user.create'); 
+Route::post('/user/createUser/post', [\App\Http\Controllers\manageUserController::class, 'store'])->name('user.store'); 
+Route::get('/user/{user_id}/editUser', [\App\Http\Controllers\manageUserController::class, 'edit'])->name('user.edit'); 
+Route::put('/user/{user_id}/updateUser', [\App\Http\Controllers\manageUserController::class, 'update'])->name('user.update'); 
+Route::put('/user/{user_id}/updatePassword', [\App\Http\Controllers\manageUserController::class, 'changePassword'])->name('user.updatePass'); 
+Route::delete('/user/{user_id}', [\App\Http\Controllers\manageUserController::class, 'destroy'])->name('user.destroy'); 

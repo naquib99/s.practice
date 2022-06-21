@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('supervisor_id')->nullable()->default(NULL);
+            $table->string('evaluator_id')->nullable()->default(NULL);
+            $table->text('address')->nullable()->default(NULL);
+            $table->string('phone')->nullable()->default(NULL);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
